@@ -82,6 +82,10 @@ bot.on('speak', function (data) {
 
   if (data.text.match(/^\/awesome$/)) {
     
+    bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
+    bot.bop();
+    
+    /*
     bot.stalk(data.userid, true, function(stalkerData) {
     	console.log(stalkerData.room);
     	try {
@@ -97,6 +101,7 @@ bot.on('speak', function (data) {
 	    	console.log("WTF:", ex);
 	    }
     });
+    */
   }
 });
 
