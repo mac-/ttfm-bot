@@ -1,0 +1,34 @@
+{
+	"name": "ttfm-bot",
+	"description": "A Node JS application used to run a Turntable FM bot.",
+	"contributors": [
+		"Mac Angell <mac.ang311@gmail.com>"
+	],
+	"version": "0.1.0",
+	"dependencies": {
+		"commander": "1.x.x",
+		"ttapi": "1.x.x",
+		"file-store": "0.x.x"
+	},
+	"devDependencies": {
+		"mocha": "1.x.x",
+		"nock": "0.x.x",
+		"jshint": "0.x.x"
+	},
+	"keywords": [
+		"turntable",
+		"bot"
+	],
+	"engines": {
+		"node": ">=0.8.0"
+	},
+	"main": "./app.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mac-/ttfm-bot"
+	},
+	"scripts": {
+		"test": "make test",
+		"start": "app.js"
+	}
+}
