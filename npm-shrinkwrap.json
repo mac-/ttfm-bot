@@ -21,6 +21,22 @@
         }
       }
     },
+    "twss": {
+      "version": "0.1.5",
+      "dependencies": {
+        "optimist": {
+          "version": "0.3.5",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.2"
+            }
+          }
+        },
+        "colors": {
+          "version": "0.6.0-1"
+        }
+      }
+    },
     "nock": {
       "version": "0.14.2"
     },

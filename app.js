@@ -49,6 +49,9 @@ applicationOptions.forEach(function(option) {
 *******************************/
 var Bot = require('ttapi');
 var bot = new Bot(config.authToken, config.userId, config.roomId);
+
+var twss = require('twss');
+twss.threshold = 0.9;
 var awesomePhrases = [
 	'Yeah, <user>! I like this shit too!',
 	'Hell yeah, one of my all-time favs.',
@@ -84,8 +87,7 @@ bot.on('speak', function (data) {
 	if (data.text.match(/^\/hello$/)) {
 		bot.speak('Hey! How are you @'+data.name+' ?');
 	}
-
-	if (data.text.match(/^\/awesome$/)) {
+	else if (data.text.match(/^\/awesome$/)) {
 		var randIdx = Math.floor(Math.random() * awesomePhrases.length);
 		var phrase = awesomePhrases[randIdx];
 		console.log(randIdx, phrase);
@@ -93,6 +95,14 @@ bot.on('speak', function (data) {
 		bot.speak(phrase);
 		bot.bop();
 	}
+	else {
+		if (twss.is(data.text) && data.text.split(/\s/).length > 4 && Math.random() > 0.75) {
+			bot.speak('That\'s what she said.');
+			console.log('twss probability:', Math.round(twss.prob(data.text)*100) + '%');
+			console.log('twss msg:', data.text);
+		}
+	}
+	
 
 	/*
 	bot.stalk(data.userid, true, function(stalkerData) {
