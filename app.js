@@ -52,8 +52,8 @@ var bot = new Bot(config.authToken, config.userId, config.roomId);
 
 
 var FileStore = require("file-store"),
-    userStore = FileStore("userLogins.txt"),
-    achievementsStore = FileStore("achievements.txt");
+	userStore = FileStore("userLogins.txt"),
+	achievementsStore = FileStore("achievements.txt");
 
 
 bot.on('registered', function(data) {
@@ -75,27 +75,37 @@ bot.on('registered', function(data) {
 });
 
 bot.on('speak', function (data) {
-  // Respond to "/hello" command
-  if (data.text.match(/^\/hello$/)) {
-    bot.speak('Hey! How are you @'+data.name+' ?');
-  }
+	// Respond to "/hello" command
+	if (data.text.match(/^\/hello$/)) {
+		bot.speak('Hey! How are you @'+data.name+' ?');
+	}
 
-  if (data.text.match(/^\/awesome$/)) {
-    
-   bot.stalk(data.userid, true, function(stalkerData) {
-    	console.log(stalkerData.room);
-    	try {
-		//if (stalkerData.room.metadata.moderator_id.indexOf(stalkerData.user.userid) > -1) {
-		bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
+	if (data.text.match(/^\/awesome$/)) {
+		var randIdx = Math.floor(Math.random() * awesomePhrases.length);
+		var phrase = awesomePhrases[randIdx];
+		console.log(randIdx, phrase);
+		phrase = phrase.replace('<user>', data.name);
+		bot.speak(phrase);
 		bot.bop();
-		//}
 	}
-	catch (ex) {
-		console.log("WTF:", ex);
-	}
-    });
-    
-  }
+
+	/*
+	bot.stalk(data.userid, true, function(stalkerData) {
+		console.log(stalkerData.room);
+		try {
+			if (stalkerData.room.metadata.moderator_id.indexOf(stalkerData.user.userid) > -1) {
+				bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
+				bot.bop();
+			}
+			else {
+				bot.speak('Sorry, only moderators can use this feature right now.');
+			}
+		}
+		catch (ex) {
+			console.log("WTF:", ex);
+		}
+	});
+	*/
 });
 
 
