@@ -97,7 +97,7 @@ bot.on('speak', function (data) {
 	}
 	else {
 		
-		if (twss.is(data.text) && data.text.split(/\s/).length >= 4) {
+		if (twss.is(data.text) && data.text.split(/\s/).length >= 4 && data.userid !== config.userId) {
 			console.log('twss probability:', Math.round(twss.prob(data.text)*100) + '%');
 			console.log('twss msg:', data.text);
 			if (Math.random() >= 0.75) {
