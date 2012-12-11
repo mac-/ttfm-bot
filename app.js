@@ -4,6 +4,9 @@ commander
 	.version(version)
 	.usage('[options] <file ...>');
 
+/*******************************
+	PARSING OPTIONS
+*******************************/
 var config = {},
 	optName,
 	description,
@@ -41,6 +44,9 @@ applicationOptions.forEach(function(option) {
 
 
 
+/*******************************
+	Bot Logic
+*******************************/
 var Bot = require('ttapi');
 var bot = new Bot(config.authToken, config.userId, config.roomId);
 
@@ -51,13 +57,65 @@ var FileStore = require("file-store"),
 
 
 bot.on('registered', function(data) {
+	console.log('registered!',data);
 	if (data.success) {
 		userStore.push(data.user[0].userid, new Date(), function(err) {
 			if (err) {
 				console.log('Error logging user registration.')
 			}
 		});
+		if (data.user[0].userid === config.userId) {
+			bot.roomInfo(true, function(roomData) {
+				if (roomData.djids.length < 3) {
+					bot.addDj();
+				}
+			});
+		}
 	}
+});
+
+bot.on('speak', function (data) {
+  // Respond to "/hello" command
+  if (data.text.match(/^\/hello$/)) {
+    bot.speak('Hey! How are you @'+data.name+' ?');
+  }
+
+  if (data.text.match(/^\/awesome$/)) {
+    
+    bot.stalk(data.userid, true, function(stalkerData) {
+    	console.log(stalkerData.room);
+    	try {
+	    	if (stalkerData.room.metadata.moderator_id.indexOf(stalkerData.user.userid) > -1) {
+	    		bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
+	    		bot.bop();
+	    	}
+	    	else {
+	    		bot.speak('Sorry, only moderators can use this feature right now.');
+	    	}
+	    }
+	    catch (ex) {
+	    	console.log("WTF:", ex);
+	    }
+    });
+  }
+});
+
+
+
+bot.on('rem_dj', function(data) {
+	bot.roomInfo(true, function(roomData) {
+		if (roomData.djids.length < 3 && roomData.djids.indexOf(config.userId) < 0) {
+			bot.addDj();
+		}
+	});
+});
+
+bot.on('add_dj', function(data) {
+	bot.roomInfo(true, function(roomData) {
+		if (roomData.djids.length > 3 && roomData.djids.indexOf(config.userId) > -1) {
+			bot.remDj();
+		}
+	});
 });
 
 
