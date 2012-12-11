@@ -82,26 +82,19 @@ bot.on('speak', function (data) {
 
   if (data.text.match(/^\/awesome$/)) {
     
-    bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
-    bot.bop();
-    
-    /*
-    bot.stalk(data.userid, true, function(stalkerData) {
+   bot.stalk(data.userid, true, function(stalkerData) {
     	console.log(stalkerData.room);
     	try {
-	    	if (stalkerData.room.metadata.moderator_id.indexOf(stalkerData.user.userid) > -1) {
-	    		bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
-	    		bot.bop();
-	    	}
-	    	else {
-	    		bot.speak('Sorry, only moderators can use this feature right now.');
-	    	}
-	    }
-	    catch (ex) {
-	    	console.log("WTF:", ex);
-	    }
+		//if (stalkerData.room.metadata.moderator_id.indexOf(stalkerData.user.userid) > -1) {
+		bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
+		bot.bop();
+		//}
+	}
+	catch (ex) {
+		console.log("WTF:", ex);
+	}
     });
-    */
+    
   }
 });
 
