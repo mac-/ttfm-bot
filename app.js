@@ -88,7 +88,7 @@ bot.on('speak', function (data) {
 		bot.speak('Hey! How are you @'+data.name+' ?');
 	}
 	else if (data.text.match(/^\/awesome$/)) {
-		var randIdx = Math.floor(Math.random() * awesomePhrases.length);
+		var randIdx = Math.round(Math.random() * awesomePhrases.length);
 		var phrase = awesomePhrases[randIdx];
 		console.log(randIdx, phrase);
 		phrase = phrase.replace('<user>', data.name);
