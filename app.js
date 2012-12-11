@@ -49,7 +49,12 @@ applicationOptions.forEach(function(option) {
 *******************************/
 var Bot = require('ttapi');
 var bot = new Bot(config.authToken, config.userId, config.roomId);
-
+var awesomePhrases = [
+	'Yeah, <user>! I like this shit too!',
+	'Hell yeah, one of my all-time favs.',
+	'This one is a goodie!',
+	'I\'m boppin with you, <user>!'
+];
 
 var FileStore = require("file-store"),
 	userStore = FileStore("userLogins.txt"),
