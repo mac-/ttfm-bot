@@ -37,6 +37,28 @@
         }
       }
     },
+    "express": {
+      "version": "2.5.11",
+      "dependencies": {
+        "connect": {
+          "version": "1.9.2",
+          "dependencies": {
+            "formidable": {
+              "version": "1.0.11"
+            }
+          }
+        },
+        "mime": {
+          "version": "1.2.4"
+        },
+        "qs": {
+          "version": "0.4.2"
+        },
+        "mkdirp": {
+          "version": "0.3.0"
+        }
+      }
+    },
     "nock": {
       "version": "0.14.2"
     },
