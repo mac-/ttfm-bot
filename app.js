@@ -1,9 +1,8 @@
 var commander = require('commander'),
 	version = require('./package.json').version,
-	express = require('express'),
-	commander
-	.version(version)
-	.usage('[options] <file ...>');
+	express = require('express');
+	
+commander.version(version).usage('[options] <file ...>');
 
 /*******************************
 	PARSING OPTIONS
