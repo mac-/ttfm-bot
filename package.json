@@ -9,7 +9,8 @@
 		"commander": "1.x.x",
 		"ttapi": "1.x.x",
 		"file-store": "0.x.x",
-		"twss": "0.x.x"
+		"twss": "0.x.x",
+		"express": "2.5.x"
 	},
 	"devDependencies": {
 		"mocha": "1.x.x",

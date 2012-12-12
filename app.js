@@ -1,6 +1,7 @@
 var commander = require('commander'),
-	version = require('./package.json').version;
-commander
+	version = require('./package.json').version,
+	express = require('express'),
+	commander
 	.version(version)
 	.usage('[options] <file ...>');
 
@@ -41,7 +42,18 @@ applicationOptions.forEach(function(option) {
 });
 
 
+/*******************************
+	Status route (to keep heroku happy)
+*******************************/
+var app = express.createServer(express.logger());
+app.get('/', function(request, response) {
+  response.send('Bot is running!');
+});
 
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 
 /*******************************
