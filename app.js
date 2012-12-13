@@ -14,7 +14,12 @@ var config = {},
 	applicationOptions = [
 		{ shortOption: 'a', longOption: 'auth-token', longOptionArgument: 'token', defaultValue: '', description: 'The token for the user to log in as.' },
 		{ shortOption: 'u', longOption: 'user-id', longOptionArgument: 'id', defaultValue: '', description: 'The user id of the user to log in as.' },
-		{ shortOption: 'r', longOption: 'room-id', longOptionArgument: 'id', defaultValue: '', description: 'The id of the room to join.' }
+		{ shortOption: 'r', longOption: 'room-id', longOptionArgument: 'id', defaultValue: '', description: 'The id of the room to join.' },
+		{ shortOption: 'h', longOption: 'db-host', longOptionArgument: 'host', defaultValue: 'localhost', description: 'The Mongo DB host to connect to' },
+		{ shortOption: 'p', longOption: 'db-port', longOptionArgument: 'number', defaultValue: '27017', description: 'The Mongo DB port' },
+		{ shortOption: 'n', longOption: 'db-name', longOptionArgument: 'name', defaultValue: 'ttfm', description: 'The Mongo DB to connect to' },
+		{ shortOption: 's', longOption: 'db-user', longOptionArgument: 'user', defaultValue: '', description: 'The Mongo DB user' },
+		{ shortOption: 'w', longOption: 'db-password', longOptionArgument: 'password', defaultValue: '', description: 'The Mongo DB password' }
 	];
 
 // apply options to command line
@@ -58,104 +63,27 @@ app.listen(port, function() {
 /*******************************
 	Bot Logic
 *******************************/
-var Bot = require('ttapi');
-var bot = new Bot(config.authToken, config.userId, config.roomId);
+var Bot = require('ttapi'),
+	commandsAddOn = require('./lib/CommandsAddOn.js'),
+	twssAddOn = require('./lib/TwssAddOn.js'),
+	statsTrackerAddOn = require('./lib/StatsTrackerAddOn.js'),
+	autoDjAddOn = require('./lib/AutoDjAddOn.js'),
+	bot = new Bot(config.authToken, config.userId, config.roomId),
+	dbConnectionString = 'mongodb://';
 
-var twss = require('twss');
-twss.threshold = 0.9;
-var awesomePhrases = [
-	'Yeah, <user>! I like this shit too!',
-	'Hell yeah, one of my all-time favs.',
-	'This one is a goodie!',
-	'I\'m boppin with you, <user>!',
-	'You nailed it, <user>!',
-	'Oh man, I\'m sticking this one in my playlist',
-	'Now this one is my style...'
-];
+if (config.dbUser.length && config.dbPassword.length) {
+	dbConnectionString += config.dbUser + ':' + config.dbPassword + '@';
+}
+dbConnectionString += config.dbHost + ':' + config.dbPort + '/' + config.dbName;
 
-var FileStore = require("file-store"),
-	userStore = FileStore("userLogins.txt"),
-	achievementsStore = FileStore("achievements.txt");
+// register commands that users can type into chat
+commandsAddOn(bot);
 
+// register twss addon
+twssAddOn(bot);
 
-bot.on('registered', function(data) {
-	console.log('registered!',data);
-	if (data.success) {
-		userStore.push(data.user[0].userid, new Date(), function(err) {
-			if (err) {
-				console.log('Error logging user registration.')
-			}
-		});
-		if (data.user[0].userid === config.userId) {
-			bot.roomInfo(true, function(roomData) {
-				if (roomData.djids.length < 3) {
-					bot.addDj();
-				}
-			});
-		}
-	}
-});
+// register auto dj addon
+autoDjAddOn(bot);
 
-bot.on('speak', function (data) {
-	// Respond to "/hello" command
-	if (data.text.match(/^\/hello$/)) {
-		bot.speak('Hey! How are you @'+data.name+' ?');
-	}
-	else if (data.text.match(/^\/awesome$/)) {
-		var randIdx = Math.round(Math.random() * (awesomePhrases.length - 1));
-		var phrase = awesomePhrases[randIdx];
-		console.log(randIdx, phrase);
-		phrase = phrase.replace('<user>', data.name);
-		bot.speak(phrase);
-		bot.bop();
-	}
-	else {
-		
-		if (twss.is(data.text) && data.text.split(/\s/).length >= 4 && data.userid !== config.userId) {
-			console.log('twss probability:', Math.round(twss.prob(data.text)*100) + '%');
-			console.log('twss msg:', data.text);
-			if (Math.random() >= 0.75) {
-				bot.speak('That\'s what she said.');
-			}
-		}
-	}
-	
-
-	/*
-	bot.stalk(data.userid, true, function(stalkerData) {
-		console.log(stalkerData.room);
-		try {
-			if (stalkerData.room.metadata.moderator_id.indexOf(stalkerData.user.userid) > -1) {
-				bot.speak('Yeah, ' + stalkerData.user.name + '! I like this shit too!');
-				bot.bop();
-			}
-			else {
-				bot.speak('Sorry, only moderators can use this feature right now.');
-			}
-		}
-		catch (ex) {
-			console.log("WTF:", ex);
-		}
-	});
-	*/
-});
-
-
-
-bot.on('rem_dj', function(data) {
-	bot.roomInfo(true, function(roomData) {
-		if (roomData.djids.length < 3 && roomData.djids.indexOf(config.userId) < 0) {
-			bot.addDj();
-		}
-	});
-});
-
-bot.on('add_dj', function(data) {
-	bot.roomInfo(true, function(roomData) {
-		if (roomData.djids.length > 3 && roomData.djids.indexOf(config.userId) > -1) {
-			bot.remDj();
-		}
-	});
-});
-
-
+// register stats addon
+statsTrackerAddOn(bot, dbConnectionString);

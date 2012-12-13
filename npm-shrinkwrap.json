@@ -59,6 +59,31 @@
         }
       }
     },
+    "mongoose": {
+      "version": "3.5.1",
+      "dependencies": {
+        "hooks": {
+          "version": "0.2.1"
+        },
+        "mongodb": {
+          "version": "1.2.5",
+          "dependencies": {
+            "bson": {
+              "version": "0.1.5"
+            }
+          }
+        },
+        "ms": {
+          "version": "0.1.0"
+        },
+        "sliced": {
+          "version": "0.0.3"
+        },
+        "muri": {
+          "version": "0.0.4"
+        }
+      }
+    },
     "nock": {
       "version": "0.14.2"
     },
