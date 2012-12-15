@@ -84,6 +84,9 @@
         }
       }
     },
+    "underscore": {
+      "version": "1.4.3"
+    },
     "nock": {
       "version": "0.14.2"
     },
