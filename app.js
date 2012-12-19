@@ -65,6 +65,7 @@ app.listen(port, function() {
 *******************************/
 var Bot = require('ttapi'),
 	commandsAddOn = require('./lib/CommandsAddOn.js'),
+	moderatorCommandsAddOn = require('./lib/ModeratorCommandsAddOn.js'),
 	twssAddOn = require('./lib/TwssAddOn.js'),
 	statsTrackerAddOn = require('./lib/StatsTrackerAddOn.js'),
 	autoDjAddOn = require('./lib/AutoDjAddOn.js'),
@@ -78,6 +79,9 @@ dbConnectionString += config.dbHost + ':' + config.dbPort + '/' + config.dbName;
 
 // register commands that users can type into chat
 commandsAddOn(bot);
+
+// register moderator commands that mods can type in a pm to the bot
+moderatorCommandsAddOn(bot);
 
 // register twss addon
 twssAddOn(bot);
