@@ -63,13 +63,13 @@ app.listen(port, function() {
 /*******************************
 	Bot Logic
 *******************************/
-var Bot = require('ttapi'),
+var ExtendedBot = require('./lib/ExtendedBot.js'),
 	commandsAddOn = require('./lib/CommandsAddOn.js'),
 	moderatorCommandsAddOn = require('./lib/ModeratorCommandsAddOn.js'),
 	twssAddOn = require('./lib/TwssAddOn.js'),
 	statsTrackerAddOn = require('./lib/StatsTrackerAddOn.js'),
 	autoDjAddOn = require('./lib/AutoDjAddOn.js'),
-	bot = new Bot(config.authToken, config.userId, config.roomId),
+	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
 if (config.dbUser.length && config.dbPassword.length) {
