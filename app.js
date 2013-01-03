@@ -56,7 +56,7 @@ app.get('/', function(request, response) {
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-  console.log("Listening on " + port);
+  console.log('Listening on ' + port);
 });
 
 
@@ -69,6 +69,8 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	twssAddOn = require('./lib/TwssAddOn.js'),
 	statsTrackerAddOn = require('./lib/StatsTrackerAddOn.js'),
 	autoDjAddOn = require('./lib/AutoDjAddOn.js'),
+	afkAddOn = require('./lib/AfkTrackerAddOn.js'),
+	afkDjAddOn = require('./lib/AfkDjAddOn.js'),
 	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
@@ -76,6 +78,8 @@ if (config.dbUser.length && config.dbPassword.length) {
 	dbConnectionString += config.dbUser + ':' + config.dbPassword + '@';
 }
 dbConnectionString += config.dbHost + ':' + config.dbPort + '/' + config.dbName;
+
+
 
 // register commands that users can type into chat
 commandsAddOn(bot);
@@ -88,6 +92,12 @@ twssAddOn(bot);
 
 // register auto dj addon
 autoDjAddOn(bot);
+
+// register afk addom
+afkAddOn(bot, 60 * 1000 * 10); // afk threshold of 10 minutes
+
+// register afk dj addon
+afkDjAddOn(bot, 60 * 1000); // warn time of 60 seconds
 
 // register stats addon
 statsTrackerAddOn(bot, dbConnectionString);
