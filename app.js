@@ -71,6 +71,7 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	autoDjAddOn = require('./lib/AutoDjAddOn.js'),
 	afkAddOn = require('./lib/AfkTrackerAddOn.js'),
 	afkDjAddOn = require('./lib/AfkDjAddOn.js'),
+	songStatsAnnouncerAddOn = require('./lib/SongStatsAnnouncerAddOn.js'),
 	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
@@ -101,3 +102,6 @@ afkDjAddOn(bot, 60 * 1000); // warn time of 60 seconds
 
 // register stats addon
 statsTrackerAddOn(bot, dbConnectionString);
+
+// register song stats announcer addon
+songStatsAnnouncerAddOn(bot);
