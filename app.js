@@ -64,14 +64,16 @@ app.listen(port, function() {
 	Bot Logic
 *******************************/
 var ExtendedBot = require('./lib/ExtendedBot.js'),
-	commandsAddOn = require('./lib/CommandsAddOn.js'),
-	moderatorCommandsAddOn = require('./lib/ModeratorCommandsAddOn.js'),
-	twssAddOn = require('./lib/TwssAddOn.js'),
-	statsTrackerAddOn = require('./lib/StatsTrackerAddOn.js'),
-	autoDjAddOn = require('./lib/AutoDjAddOn.js'),
-	afkAddOn = require('./lib/AfkTrackerAddOn.js'),
-	afkDjAddOn = require('./lib/AfkDjAddOn.js'),
-	songStatsAnnouncerAddOn = require('./lib/SongStatsAnnouncerAddOn.js'),
+	BopperAddOn = require('./lib/BopperAddOn.js'),
+	TwssAddOn = require('./lib/TwssAddOn.js'),
+	GreeterAddOn = require('./lib/GreeterAddOn.js'),
+	SongTrackerAddOn = require('./lib/SongTrackerAddOn.js'),
+	UserTrackerAddOn = require('./lib/UserTrackerAddOn.js'),
+	AchievementsTrackerAddOn = require('./lib/AchievementsTrackerAddOn.js'),
+	AutoDjAddOn = require('./lib/AutoDjAddOn.js'),
+	EscortMeAddOn = require('./lib/EscortMeAddOn.js'),
+	AfkAddOn = require('./lib/AfkTrackerAddOn.js'),
+	AfkDjAddOn = require('./lib/AfkDjAddOn.js'),
 	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
@@ -81,27 +83,32 @@ if (config.dbUser.length && config.dbPassword.length) {
 dbConnectionString += config.dbHost + ':' + config.dbPort + '/' + config.dbName;
 
 
+// register greeter addon
+bot.registerAddOn(GreeterAddOn);
 
-// register commands that users can type into chat
-commandsAddOn(bot);
+// register bopper addon
+bot.registerAddOn(BopperAddOn);
 
-// register moderator commands that mods can type in a pm to the bot
-moderatorCommandsAddOn(bot);
+// register escort me addon
+bot.registerAddOn(EscortMeAddOn);
 
 // register twss addon
-twssAddOn(bot);
+bot.registerAddOn(TwssAddOn);
 
 // register auto dj addon
-autoDjAddOn(bot);
+bot.registerAddOn(AutoDjAddOn);
 
-// register afk addom
-afkAddOn(bot, 60 * 1000 * 10); // afk threshold of 10 minutes
+// register afk addon
+bot.registerAddOn(AfkAddOn, { afkThreshold: 60 * 1000 * 15 }); // afk threshold of 15 minutes
 
 // register afk dj addon
-afkDjAddOn(bot, 60 * 1000); // warn time of 60 seconds
+bot.registerAddOn(AfkDjAddOn, { warnTime: 60 * 1000 }); // warn time of 60 seconds
 
-// register stats addon
-statsTrackerAddOn(bot, dbConnectionString);
+// register song tracker addon
+bot.registerAddOn(SongTrackerAddOn, { dbConnectionString: dbConnectionString });
 
-// register song stats announcer addon
-songStatsAnnouncerAddOn(bot);
+// register user tracker addon
+bot.registerAddOn(UserTrackerAddOn, { dbConnectionString: dbConnectionString });
+
+// register achievements tracker addon
+bot.registerAddOn(AchievementsTrackerAddOn, { dbConnectionString: dbConnectionString });
