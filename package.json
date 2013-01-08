@@ -14,7 +14,7 @@
 		"mongoose": "3.5.x",
 		"underscore": "1.x.x",
 		"moment": "1.x.x",
-		"eidetic": "git+ssh://git@github.com:mac-/eidetic.git#0.1.1"
+		"eidetic": "0.1.x"
 	},
 	"devDependencies": {
 		"mocha": "1.x.x",
