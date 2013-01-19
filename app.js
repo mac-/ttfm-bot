@@ -74,6 +74,7 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	EscortMeAddOn = require('./lib/EscortMeAddOn.js'),
 	AfkAddOn = require('./lib/AfkTrackerAddOn.js'),
 	AfkDjAddOn = require('./lib/AfkDjAddOn.js'),
+	DjQueueAddOn = require('./lib/DjQueueAddOn.js'),
 	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
@@ -97,6 +98,9 @@ bot.registerAddOn(TwssAddOn);
 
 // register auto dj addon
 bot.registerAddOn(AutoDjAddOn);
+
+// register dj queue addon
+bot.registerAddOn(DjQueueAddOn, { djSongLimit: 2 });
 
 // register afk addon
 bot.registerAddOn(AfkAddOn, { afkThreshold: 60 * 1000 * .15 }); // afk threshold of 15 minutes

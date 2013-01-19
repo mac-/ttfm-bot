@@ -14,7 +14,8 @@
 		"mongoose": "3.5.x",
 		"underscore": "1.x.x",
 		"moment": "1.x.x",
-		"eidetic": "0.1.x"
+		"eidetic": "0.1.x",
+		"clone": "0.1.x"
 	},
 	"devDependencies": {
 		"mocha": "1.x.x",

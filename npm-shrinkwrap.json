@@ -11,7 +11,7 @@
       }
     },
     "ttapi": {
-      "version": "1.5.3"
+      "version": "1.5.4"
     },
     "file-store": {
       "version": "0.1.0",
@@ -91,12 +91,10 @@
       "version": "1.7.2"
     },
     "eidetic": {
-      "version": "0.1.1",
-      "dependencies": {
-        "clone": {
-          "version": "0.1.5"
-        }
-      }
+      "version": "0.1.1"
+    },
+    "clone": {
+      "version": "0.1.5"
     },
     "nock": {
       "version": "0.14.3"
