@@ -103,10 +103,10 @@ bot.registerAddOn(AutoDjAddOn);
 bot.registerAddOn(DjQueueAddOn, { djSongLimit: 2 });
 
 // register afk addon
-bot.registerAddOn(AfkAddOn, { afkThreshold: 60 * 1000 * 15 }); // afk threshold of 15 minutes
+bot.registerAddOn(AfkAddOn, { afkThreshold: 60 * 15 }); // afk threshold of 15 minutes
 
 // register afk dj addon
-bot.registerAddOn(AfkDjAddOn, { warnTime: 60 * 1000 }); // warn time of 60 seconds
+bot.registerAddOn(AfkDjAddOn, { warnTime: 60 }); // warn time of 60 seconds
 
 // register song tracker addon
 bot.registerAddOn(SongTrackerAddOn, { dbConnectionString: dbConnectionString });
