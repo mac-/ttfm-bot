@@ -70,7 +70,7 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	SongTrackerAddOn = require('./lib/SongTrackerAddOn.js'),
 	UserTrackerAddOn = require('./lib/UserTrackerAddOn.js'),
 	AchievementsTrackerAddOn = require('./lib/AchievementsTrackerAddOn.js'),
-	AutoDjAddOn = require('./lib/AutoDjAddOn.js'),
+	DjAddOn = require('./lib/DjAddOn.js'),
 	EscortMeAddOn = require('./lib/EscortMeAddOn.js'),
 	AfkAddOn = require('./lib/AfkTrackerAddOn.js'),
 	AfkDjAddOn = require('./lib/AfkDjAddOn.js'),
@@ -96,8 +96,8 @@ bot.registerAddOn(EscortMeAddOn);
 // register twss addon
 bot.registerAddOn(TwssAddOn);
 
-// register auto dj addon
-bot.registerAddOn(AutoDjAddOn);
+// register dj addon
+bot.registerAddOn(DjAddOn);
 
 // register dj queue addon
 bot.registerAddOn(DjQueueAddOn, { djSongLimit: 2 });
