@@ -10,9 +10,6 @@ update:
 test:
 	./test/test.sh
 
-integration:
-	./node_modules/.bin/mocha -R spec -g Integration
-
 coverage:
 	# To install coverage:
 	# $ git clone https://github.com/visionmedia/node-jscoverage.git
@@ -31,4 +28,4 @@ coverage:
 	#open the coverage result in the browser
 	xdg-open "file://${CURDIR}/coverage/coverage.html" &
 
-.PHONY: test integration coverage
+.PHONY: test coverage
