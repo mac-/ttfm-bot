@@ -179,7 +179,7 @@ ttfm-bot comes with several add ons that provide a bunch of additional functiona
 		* An object containing information about the message that was sent.
 		* The ID of the user who sent the message.
 		* A function that can be used to reply to that user that takes one parameter, a String, or a collection of Strings.
-* options (optional) - An object that contains keys that are the names of options that con be configured at runtime with coreesponding values that are objects that contain the following propterties:
+* options (optional) - An object that contains keys that are the names of options that con be configured at runtime with corresponding values that are objects that contain the following propterties:
 	* value - The default or starting value of the option.
 	* type - The JS type that the value is.
 	* description - A description of what the option is or does.
@@ -192,6 +192,7 @@ Simple Example Add On
 ---
 
 ```javascript
+// ./lib/GreeterAddOn.js
 module.exports = function GreeterAddOn(bot) {
 
 	var self = this,
@@ -247,6 +248,14 @@ module.exports = function GreeterAddOn(bot) {
 	};
 };
 ```
+
+The above add on can then be registered with the bot like so:
+
+```javascript
+var GreeterAddOn = require('./lib/GreeterAddOn.js');
+bot.registerAddOn(GreeterAddOn, { isNice: false });
+```
+
 
 Add ons that come with this bot
 ===
