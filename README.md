@@ -66,10 +66,12 @@ The Extended Bot is a class that extends the original [turntable.fm api](https:/
 The extended bot provides the following additional methods:
 
 * registerAddOn(constructorFunction:Function, [options:Object]) - Registers an add on with the bot. This method takes a constructor function of the add on and an opject of name value pairs that is used to initally set the add on's option values.
+
 ```
 	// example
 	bot.registerAddOn(DjQueueAddOn, { djSongLimit: 2 });
 ```
+
 * enableAddOn(name:String) - Calls the enable method on the specifed add on. This method takes one parameter which is the name of the add on to enable.
 
 	// example
