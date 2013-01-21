@@ -74,70 +74,94 @@ The extended bot provides the following additional methods:
 
 * enableAddOn(name:String) - Calls the enable method on the specifed add on. This method takes one parameter which is the name of the add on to enable.
 
+```
 	// example
 	bot.enableAddOn('dj-queue');
+```
 
 * disableAddOn(name:String) - Calls the disable method on the specifed add on. This method takes one parameter which is the name of the add on to disable.
 
+```
 	// example
 	bot.disableAddOn('dj-queue');
+```
 
 * isConnected() - A method that returns a Boolean value specifying whether or not the bot is connected to turntable.fm
 
+```
 	// example
 	bot.isConnected(); // true of false
+```
 
 * findUserIdInRoomByName(name:String, callback:Function) - Searches the room for a user with a given name. This method takes two parameters. The first one is the name of a user to get the user ID of in String format. The first parameter can also be a RegExp object which will match the desired user name. If more than 1 user matches the RegExp provided, the first one found will be the one returned in the callback. The second parameter is a function that will be called once the user is found. This callback can expect to recieve one parameter which is the ID of the user that it found, or null if no match was found.
 
+```
 	// example
 	bot.findUserIdInRoomByName(/dj.*/i, function(userId) { console.log(userId); });
 	bot.findUserIdInRoomByName('exact match dj', function(userId) { console.log(userId); });
+```
 
 * getUserInfo(userId:String, callback:Function) - Gets information about a user by ID. This method takes a user ID as the first parameter and a function as a second parameter which will be called once the user information is found. This function should expect to recieve one parameter which will be an object conatining properties about the user.
 
+```
 	// example
 	bot.getUserInfo('4e9d9ec3f75112a602b13a', function(user) { console.log(user); });
+```
 
 * getModsInRoom(callback:Function) - Gets the IDs of the moderators in the room. This method takes one parameter which is a function to be called when the moderator IDs are determined. This function should expect to recieve one paramter that is an Array of user IDs.
 
+```
 	// example
 	bot.getModsInRoom(function(mods) { console.log(mods); });
+```
 
 * getCurrentSong() - Gets information about the current song being played, or null if no song is being played.
 
+```
 	//example
 	var songObject = bot.getCurrentSong();
+```
 
 * getCurrentDjsInRoom() - Gets the current DJs in the room. The object returned by this method has user IDs as keys and user objects as values. It also conatins a "length" property which is the number of current DJs.
 
+```
 	//example
 	var djsObject = bot.getCurrentDjsInRoom();
+```
 
 * getCurrentUsersInRoom(callback:Function) - Gets all users in the room. The object returned by this method has user IDs as keys and user objects as values. It also conatins a "length" property which is the number of current users.
 
+```
 	//example
 	bot.getCurrentUsersInRoom(function(users) { console.log(users); });
+```
 
 * getCurrentListenersInRoom(callback:Function) - Gets all listeners (non-DJs) in the room. The object returned by this method has user IDs as keys and user objects as values. It also conatins a "length" property which is the number of listeners.
 
+```
 	//example
 	bot.getCurrentListenersInRoom(function(listeners) { console.log(listeners); });
+```
 
 * multiSpeak(messages:Array, [timeInMs:Number], [callback:Function]) - Same functionality as "speak" but this method allows you to send multiple messages at once with a specified time period between each message. This method takes an Array of Strings as the first paramter, an optional number as the second paramter, and an optional callback function as the third parameter.
 
+```
 	//example
 	bot.multiSpeak(['hi', 'how are you?']);
 	bot.multiSpeak(['hi', 'how are you?'], 1000);
 	bot.multiSpeak(['hi', 'how are you?'], function() { console.log('messages were sent'); });
 	bot.multiSpeak(['hi', 'how are you?'], 500, function() { console.log('messages were sent'); });
+```
 
 * multiPm(messages:Array, userId:String, [timeInMs:Number], [callback:Function]) - Same functionality as "pm" but this method allows you to send multiple messages at once with a specified time period between each message. This method takes an Array of Strings as the first paramter, a user ID as the second paramter, an optional number as the third paramter, and an optional callback function as the fourth parameter.
 
+```
 	//example
 	bot.multiPm(['hi', 'how are you?'], '4e9d9ec3f75112a602b13a');
 	bot.multiPm(['hi', 'how are you?'], '4e9d9ec3f75112a602b13a', 1000);
 	bot.multiPm(['hi', 'how are you?'], '4e9d9ec3f75112a602b13a', function() { console.log('messages were sent'); });
 	bot.multiPm(['hi', 'how are you?'], '4e9d9ec3f75112a602b13a', 500, function() { console.log('messages were sent'); });
+```
 
 Add Ons
 ---
