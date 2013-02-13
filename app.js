@@ -1,50 +1,48 @@
-var commander = require('commander'),
+var opter = require('opter'),
 	version = require('./package.json').version,
 	express = require('express');
-	
-commander.version(version).usage('[options] <file ...>');
 
 /*******************************
 	PARSING OPTIONS
 *******************************/
-var config = {},
-	optName,
-	description,
-	dashRegex = /-\w/gi,
-	applicationOptions = [
-		{ shortOption: 'a', longOption: 'auth-token', longOptionArgument: 'token', defaultValue: '', description: 'The token for the user to log in as.' },
-		{ shortOption: 'u', longOption: 'user-id', longOptionArgument: 'id', defaultValue: '', description: 'The user id of the user to log in as.' },
-		{ shortOption: 'r', longOption: 'room-id', longOptionArgument: 'id', defaultValue: '', description: 'The id of the room to join.' },
-		{ shortOption: 'o', longOption: 'db-host', longOptionArgument: 'host', defaultValue: 'localhost', description: 'The Mongo DB host to connect to' },
-		{ shortOption: 'p', longOption: 'db-port', longOptionArgument: 'number', defaultValue: '27017', description: 'The Mongo DB port' },
-		{ shortOption: 'n', longOption: 'db-name', longOptionArgument: 'name', defaultValue: 'ttfm', description: 'The Mongo DB to connect to' },
-		{ shortOption: 's', longOption: 'db-user', longOptionArgument: 'user', defaultValue: '', description: 'The Mongo DB user' },
-		{ shortOption: 'w', longOption: 'db-password', longOptionArgument: 'password', defaultValue: '', description: 'The Mongo DB password' }
-	];
-
-// apply options to command line
-applicationOptions.forEach(function(option) {
-	description = option.description
-	if (option.hasOwnProperty('defaultValue') && option.defaultValue !== null) {
-		description += ' Defaults to: ';
-		description += (typeof(option.defaultValue) === 'string') ? '"' + option.defaultValue + '"' : option.defaultValue;
-	}
-	var longOptionStr = (option.longOptionArgument) ? option.longOption + ' <' + option.longOptionArgument + '>' : option.longOption;
-	commander.option('-' + option.shortOption + ', --' + longOptionStr, description);
-});
-
-// parse options form arguments
-commander.parse(process.argv);
-
-// save options to config obj (from env vars first, command line second, and defaults last)
-applicationOptions.forEach(function(option) {
-	optName = option.longOption;
-	option.longOption.match(dashRegex).forEach(function(match) {
-		optName = optName.replace(match, match[1].toUpperCase());
-	});
-	config[optName] = process.env[optName] || commander[optName] || option.defaultValue;
-});
-
+var options = {
+		authToken: {
+			argument: 'token',
+			description: 'The token for the user to log in as.'
+		},
+		userId: {
+			argument: 'id',
+			description: 'The user id of the user to log in as.'
+		},
+		roomId: {
+			argument: 'id',
+			description: 'The id of the room to join.'
+		},
+		dbHost: {
+			argument: 'host',
+			defaultValue: 'localhost',
+			description: 'The Mongo DB host to connect to'
+		},
+		dbPort: {
+			argument: 'number',
+			defaultValue: '27017',
+			description: 'The Mongo DB port'
+		},
+		dbName: {
+			argument: 'name',
+			defaultValue: 'ttfm',
+			description: 'The Mongo DB to connect to'
+		},
+		dbUser: {
+			argument: 'user',
+			description: 'The Mongo DB user'
+		},
+		dbPassword: {
+			argument: 'password',
+			description: 'The Mongo DB password'
+		}
+	},
+	config = opter(options, version);
 
 /*******************************
 	Status route (to keep heroku happy)
@@ -58,7 +56,6 @@ var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log('Listening on ' + port);
 });
-
 
 /*******************************
 	Bot Logic

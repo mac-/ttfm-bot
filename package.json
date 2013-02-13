@@ -6,7 +6,7 @@
 	],
 	"version": "0.1.0",
 	"dependencies": {
-		"commander": "1.x.x",
+		"opter": "0.x.x",
 		"ttapi": "1.x.x",
 		"file-store": "0.x.x",
 		"twss": "0.x.x",

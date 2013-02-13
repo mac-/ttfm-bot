@@ -2,11 +2,16 @@
   "name": "ttfm-bot",
   "version": "0.1.0",
   "dependencies": {
-    "commander": {
-      "version": "1.1.1",
+    "opter": {
+      "version": "0.1.0",
       "dependencies": {
-        "keypress": {
-          "version": "0.1.0"
+        "commander": {
+          "version": "1.1.1",
+          "dependencies": {
+            "keypress": {
+              "version": "0.1.0"
+            }
+          }
         }
       }
     },
@@ -60,16 +65,16 @@
       }
     },
     "mongoose": {
-      "version": "3.5.4",
+      "version": "3.5.5",
       "dependencies": {
         "hooks": {
           "version": "0.2.1"
         },
         "mongodb": {
-          "version": "1.2.8",
+          "version": "1.2.11",
           "dependencies": {
             "bson": {
-              "version": "0.1.5"
+              "version": "0.1.6"
             }
           }
         },
@@ -85,7 +90,7 @@
       }
     },
     "underscore": {
-      "version": "1.4.3"
+      "version": "1.4.4"
     },
     "moment": {
       "version": "1.7.2"
@@ -97,7 +102,12 @@
       "version": "0.1.5"
     },
     "nock": {
-      "version": "0.14.3"
+      "version": "0.15.2",
+      "dependencies": {
+        "propagate": {
+          "version": "0.2.0"
+        }
+      }
     },
     "mocha": {
       "version": "1.8.1",
@@ -120,7 +130,7 @@
           "version": "1.0.2"
         },
         "debug": {
-          "version": "0.7.0"
+          "version": "0.7.2"
         },
         "mkdirp": {
           "version": "0.3.3"
@@ -137,7 +147,7 @@
           "version": "0.4.3",
           "dependencies": {
             "glob": {
-              "version": "3.1.14",
+              "version": "3.1.20",
               "dependencies": {
                 "minimatch": {
                   "version": "0.2.9",
@@ -151,7 +161,7 @@
                   }
                 },
                 "graceful-fs": {
-                  "version": "1.1.14"
+                  "version": "1.2.0"
                 },
                 "inherits": {
                   "version": "1.0.0"
