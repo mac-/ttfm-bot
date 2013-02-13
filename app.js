@@ -44,6 +44,7 @@ var options = {
 	},
 	config = opter(options, version);
 
+console.log('env',process.env);
 /*******************************
 	Status route (to keep heroku happy)
 *******************************/
@@ -77,7 +78,7 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 
 if (config.dbUser.length && config.dbPassword.length) {
 	dbConnectionString += config.dbUser + ':' + config.dbPassword + '@';
-}
+}	
 dbConnectionString += config.dbHost + ':' + config.dbPort + '/' + config.dbName;
 
 
