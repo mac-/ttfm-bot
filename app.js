@@ -44,7 +44,6 @@ var options = {
 	},
 	config = opter(options, version);
 
-console.log('env',config);
 /*******************************
 	Status route (to keep heroku happy)
 *******************************/

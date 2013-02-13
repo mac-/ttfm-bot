@@ -3,168 +3,260 @@
   "version": "0.1.0",
   "dependencies": {
     "opter": {
-      "version": "0.1.0",
+      "version": "0.1.1",
+      "from": "opter@0.x.x",
+      "resolved": "http://registry.tesla:5984/opter/-/opter-0.1.1.tgz",
       "dependencies": {
         "commander": {
           "version": "1.1.1",
+          "from": "commander@1.x.x",
+          "resolved": "http://registry.tesla:5984/commander/-/commander-1.1.1.tgz",
           "dependencies": {
             "keypress": {
-              "version": "0.1.0"
+              "version": "0.1.0",
+              "from": "keypress@0.1.x",
+              "resolved": "http://registry.tesla:5984/keypress/-/keypress-0.1.0.tgz"
             }
           }
         }
       }
     },
     "ttapi": {
-      "version": "1.5.4"
+      "version": "1.5.4",
+      "from": "ttapi@1.x.x",
+      "resolved": "http://registry.tesla:5984/ttapi/-/ttapi-1.5.4.tgz"
     },
     "file-store": {
       "version": "0.1.0",
+      "from": "file-store@0.x.x",
+      "resolved": "http://registry.tesla:5984/file-store/-/file-store-0.1.0.tgz",
       "dependencies": {
         "mkdirp": {
-          "version": "0.3.4"
+          "version": "0.3.4",
+          "from": "mkdirp@~0.3.4",
+          "resolved": "http://registry.tesla:5984/mkdirp/-/mkdirp-0.3.4.tgz"
         }
       }
     },
     "twss": {
       "version": "0.1.5",
+      "from": "twss@0.x.x",
+      "resolved": "http://registry.tesla:5984/twss/-/twss-0.1.5.tgz",
       "dependencies": {
         "optimist": {
           "version": "0.3.5",
+          "from": "optimist@0.3",
+          "resolved": "http://registry.tesla:5984/optimist/-/optimist-0.3.5.tgz",
           "dependencies": {
             "wordwrap": {
-              "version": "0.0.2"
+              "version": "0.0.2",
+              "from": "wordwrap@~0.0.2",
+              "resolved": "http://registry.tesla:5984/wordwrap/-/wordwrap-0.0.2.tgz"
             }
           }
         },
         "colors": {
-          "version": "0.6.0-1"
+          "version": "0.6.0-1",
+          "from": "colors@*",
+          "resolved": "http://registry.tesla:5984/colors/-/colors-0.6.0-1.tgz"
         }
       }
     },
     "express": {
       "version": "2.5.11",
+      "from": "express@2.5.x",
+      "resolved": "http://registry.tesla:5984/express/-/express-2.5.11.tgz",
       "dependencies": {
         "connect": {
           "version": "1.9.2",
+          "from": "connect@1.x",
+          "resolved": "http://registry.tesla:5984/connect/-/connect-1.9.2.tgz",
           "dependencies": {
             "formidable": {
-              "version": "1.0.11"
+              "version": "1.0.11",
+              "from": "formidable@1.0.x",
+              "resolved": "http://registry.tesla:5984/formidable/-/formidable-1.0.11.tgz"
             }
           }
         },
         "mime": {
-          "version": "1.2.4"
+          "version": "1.2.4",
+          "from": "mime@1.2.4",
+          "resolved": "http://registry.tesla:5984/mime/-/mime-1.2.4.tgz"
         },
         "qs": {
-          "version": "0.4.2"
+          "version": "0.4.2",
+          "from": "qs@0.4.x",
+          "resolved": "http://registry.tesla:5984/qs/-/qs-0.4.2.tgz"
         },
         "mkdirp": {
-          "version": "0.3.0"
+          "version": "0.3.0",
+          "from": "mkdirp@0.3.0",
+          "resolved": "http://registry.tesla:5984/mkdirp/-/mkdirp-0.3.0.tgz"
         }
       }
     },
     "mongoose": {
       "version": "3.5.5",
+      "from": "mongoose@3.5.x",
+      "resolved": "http://registry.tesla:5984/mongoose/-/mongoose-3.5.5.tgz",
       "dependencies": {
         "hooks": {
-          "version": "0.2.1"
+          "version": "0.2.1",
+          "from": "hooks@0.2.1",
+          "resolved": "http://registry.tesla:5984/hooks/-/hooks-0.2.1.tgz"
         },
         "mongodb": {
           "version": "1.2.11",
+          "from": "mongodb@1.2.11",
+          "resolved": "http://registry.tesla:5984/mongodb/-/mongodb-1.2.11.tgz",
           "dependencies": {
             "bson": {
-              "version": "0.1.6"
+              "version": "0.1.6",
+              "from": "bson@0.1.6",
+              "resolved": "http://registry.tesla:5984/bson/-/bson-0.1.6.tgz"
             }
           }
         },
         "ms": {
-          "version": "0.1.0"
+          "version": "0.1.0",
+          "from": "ms@0.1.0",
+          "resolved": "http://registry.tesla:5984/ms/-/ms-0.1.0.tgz"
         },
         "sliced": {
-          "version": "0.0.3"
+          "version": "0.0.3",
+          "from": "sliced@0.0.3",
+          "resolved": "http://registry.tesla:5984/sliced/-/sliced-0.0.3.tgz"
         },
         "muri": {
-          "version": "0.1.0"
+          "version": "0.1.0",
+          "from": "muri@0.1.0",
+          "resolved": "http://registry.tesla:5984/muri/-/muri-0.1.0.tgz"
         }
       }
     },
     "underscore": {
-      "version": "1.4.4"
+      "version": "1.4.4",
+      "from": "underscore@1.x.x",
+      "resolved": "http://registry.tesla:5984/underscore/-/underscore-1.4.4.tgz"
     },
     "moment": {
-      "version": "1.7.2"
+      "version": "1.7.2",
+      "from": "moment@1.x.x",
+      "resolved": "http://registry.tesla:5984/moment/-/moment-1.7.2.tgz"
     },
     "eidetic": {
-      "version": "0.1.1"
+      "version": "0.1.1",
+      "from": "eidetic@0.1.x",
+      "resolved": "http://registry.tesla:5984/eidetic/-/eidetic-0.1.1.tgz"
     },
     "clone": {
-      "version": "0.1.5"
+      "version": "0.1.5",
+      "from": "clone@0.1.x",
+      "resolved": "http://registry.tesla:5984/clone/-/clone-0.1.5.tgz"
     },
     "nock": {
       "version": "0.15.2",
+      "from": "nock@0.x.x",
+      "resolved": "http://registry.tesla:5984/nock/-/nock-0.15.2.tgz",
       "dependencies": {
         "propagate": {
-          "version": "0.2.0"
+          "version": "0.2.0",
+          "from": "propagate@0.2.x",
+          "resolved": "http://registry.tesla:5984/propagate/-/propagate-0.2.0.tgz"
         }
       }
     },
     "mocha": {
       "version": "1.8.1",
+      "from": "mocha@1.x.x",
+      "resolved": "http://registry.tesla:5984/mocha/-/mocha-1.8.1.tgz",
       "dependencies": {
         "commander": {
-          "version": "0.6.1"
+          "version": "0.6.1",
+          "from": "commander@0.6.1",
+          "resolved": "http://registry.tesla:5984/commander/-/commander-0.6.1.tgz"
         },
         "growl": {
-          "version": "1.7.0"
+          "version": "1.7.0",
+          "from": "growl@1.7.x",
+          "resolved": "http://registry.tesla:5984/growl/-/growl-1.7.0.tgz"
         },
         "jade": {
           "version": "0.26.3",
+          "from": "jade@0.26.3",
+          "resolved": "http://registry.tesla:5984/jade/-/jade-0.26.3.tgz",
           "dependencies": {
             "mkdirp": {
-              "version": "0.3.0"
+              "version": "0.3.0",
+              "from": "mkdirp@0.3.0",
+              "resolved": "http://registry.tesla:5984/mkdirp/-/mkdirp-0.3.0.tgz"
             }
           }
         },
         "diff": {
-          "version": "1.0.2"
+          "version": "1.0.2",
+          "from": "diff@1.0.2",
+          "resolved": "http://registry.tesla:5984/diff/-/diff-1.0.2.tgz"
         },
         "debug": {
-          "version": "0.7.2"
+          "version": "0.7.2",
+          "from": "debug@*",
+          "resolved": "http://registry.tesla:5984/debug/-/debug-0.7.2.tgz"
         },
         "mkdirp": {
-          "version": "0.3.3"
+          "version": "0.3.3",
+          "from": "mkdirp@0.3.3",
+          "resolved": "http://registry.tesla:5984/mkdirp/-/mkdirp-0.3.3.tgz"
         },
         "ms": {
-          "version": "0.3.0"
+          "version": "0.3.0",
+          "from": "ms@0.3.0",
+          "resolved": "http://registry.tesla:5984/ms/-/ms-0.3.0.tgz"
         }
       }
     },
     "jshint": {
       "version": "0.9.1",
+      "from": "jshint@0.x.x",
+      "resolved": "http://registry.tesla:5984/jshint/-/jshint-0.9.1.tgz",
       "dependencies": {
         "cli": {
           "version": "0.4.3",
+          "from": "cli@0.4.3",
+          "resolved": "http://registry.tesla:5984/cli/-/cli-0.4.3.tgz",
           "dependencies": {
             "glob": {
               "version": "3.1.20",
+              "from": "glob@>= 3.1.4",
+              "resolved": "http://registry.tesla:5984/glob/-/glob-3.1.20.tgz",
               "dependencies": {
                 "minimatch": {
                   "version": "0.2.9",
+                  "from": "minimatch@0.2",
+                  "resolved": "http://registry.tesla:5984/minimatch/-/minimatch-0.2.9.tgz",
                   "dependencies": {
                     "lru-cache": {
-                      "version": "2.0.4"
+                      "version": "2.0.4",
+                      "from": "lru-cache@~2.0.0",
+                      "resolved": "http://registry.tesla:5984/lru-cache/-/lru-cache-2.0.4.tgz"
                     },
                     "sigmund": {
-                      "version": "1.0.0"
+                      "version": "1.0.0",
+                      "from": "sigmund@~1.0.0",
+                      "resolved": "http://registry.tesla:5984/sigmund/-/sigmund-1.0.0.tgz"
                     }
                   }
                 },
                 "graceful-fs": {
-                  "version": "1.2.0"
+                  "version": "1.2.0",
+                  "from": "graceful-fs@~1.2.0",
+                  "resolved": "http://registry.tesla:5984/graceful-fs/-/graceful-fs-1.2.0.tgz"
                 },
                 "inherits": {
-                  "version": "1.0.0"
+                  "version": "1.0.0",
+                  "from": "inherits@1",
+                  "resolved": "http://registry.tesla:5984/inherits/-/inherits-1.0.0.tgz"
                 }
               }
             }
@@ -172,9 +264,13 @@
         },
         "minimatch": {
           "version": "0.0.5",
+          "from": "minimatch@0.0.x",
+          "resolved": "http://registry.tesla:5984/minimatch/-/minimatch-0.0.5.tgz",
           "dependencies": {
             "lru-cache": {
-              "version": "1.0.6"
+              "version": "1.0.6",
+              "from": "lru-cache@~1.0.2",
+              "resolved": "http://registry.tesla:5984/lru-cache/-/lru-cache-1.0.6.tgz"
             }
           }
         }
