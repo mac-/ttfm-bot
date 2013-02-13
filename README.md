@@ -24,18 +24,20 @@ Running The App
 You can run ttfm-bot with the -h flag to see the various options:
 
 	$ node app.js -h
-	  Options:
+	Usage: app.js [options]
 
-	    -h, --help                    output usage information
-	    -V, --version                 output the version number
-	    -a, --auth-token <token>      The token for the user to log in as. Defaults to: ""
-	    -u, --user-id <id>            The user id of the user to log in as. Defaults to: ""
-	    -r, --room-id <id>            The id of the room to join. Defaults to: ""
-	    -o, --db-host <host>          The Mongo DB host to connect to Defaults to: "localhost"
-	    -p, --db-port <number>        The Mongo DB port Defaults to: "27017"
-	    -n, --db-name <name>          The Mongo DB to connect to Defaults to: "ttfm"
-	    -s, --db-user <user>          The Mongo DB user Defaults to: ""
-	    -w, --db-password <password>  The Mongo DB password Defaults to: ""
+	Options:
+
+		-h, --help                    output usage information
+		-V, --version                 output the version number
+		-a, --auth-token <token>      The token for the user to log in as.
+		-u, --user-id <id>            The user id of the user to log in as.
+		-r, --room-id <id>            The id of the room to join.
+		-d, --db-host <host>          The Mongo DB host to connect to Defaults to: "localhost"
+		-D, --db-port <number>        The Mongo DB port Defaults to: "27017"
+		-n, --db-name <name>          The Mongo DB to connect to Defaults to: "ttfm"
+		-U, --db-user <user>          The Mongo DB user
+		-p, --db-password <password>  The Mongo DB password
 
 Example usage:
 
