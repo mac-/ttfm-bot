@@ -75,7 +75,7 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
-if (config.dbUser.length && config.dbPassword.length) {
+if (config.dbUser && config.dbUser.length && config.dbPassword && config.dbPassword.length) {
 	dbConnectionString += config.dbUser + ':' + config.dbPassword + '@';
 }	
 dbConnectionString += config.dbHost + ':' + config.dbPort + '/' + config.dbName;
