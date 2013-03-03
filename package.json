@@ -15,7 +15,8 @@
 		"underscore": "1.x.x",
 		"moment": "1.x.x",
 		"eidetic": "0.1.x",
-		"clone": "0.1.x"
+		"clone": "0.1.x",
+		"lastfm": "0.8.x"
 	},
 	"devDependencies": {
 		"mocha": "1.x.x",

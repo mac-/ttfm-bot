@@ -72,6 +72,7 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	AfkAddOn = require('./lib/AfkTrackerAddOn.js'),
 	AfkDjAddOn = require('./lib/AfkDjAddOn.js'),
 	DjQueueAddOn = require('./lib/DjQueueAddOn.js'),
+	LastFmAddOn = require('./lib/LastFmAddOn.js'),
 	bot = new ExtendedBot(config.authToken, config.userId, config.roomId),
 	dbConnectionString = 'mongodb://';
 
@@ -98,6 +99,9 @@ bot.registerAddOn(DjAddOn);
 
 // register dj queue addon
 bot.registerAddOn(DjQueueAddOn, { djSongLimit: 2 });
+
+// register lastfm addon
+bot.registerAddOn(LastFmAddOn);
 
 // register afk addon
 bot.registerAddOn(AfkAddOn, { afkThreshold: 60 * 15 }); // afk threshold of 15 minutes
