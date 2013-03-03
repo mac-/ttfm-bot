@@ -16,15 +16,7 @@
       }
     },
     "ttapi": {
-      "version": "1.5.4"
-    },
-    "file-store": {
-      "version": "0.1.0",
-      "dependencies": {
-        "mkdirp": {
-          "version": "0.3.5"
-        }
-      }
+      "version": "2.1.4"
     },
     "twss": {
       "version": "0.1.6",
@@ -96,10 +88,12 @@
       "version": "1.7.2"
     },
     "eidetic": {
-      "version": "0.1.1"
-    },
-    "clone": {
-      "version": "0.1.6"
+      "version": "0.1.1",
+      "dependencies": {
+        "clone": {
+          "version": "0.1.6"
+        }
+      }
     },
     "lastfm": {
       "version": "0.8.4"
