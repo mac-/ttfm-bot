@@ -43,10 +43,12 @@ var options = {
 		},
 		lastFmApiKey: {
 			argument: 'key',
+			defaultValue: '',
 			description: 'The last.fm API key'
 		},
 		lastFmSecret: {
 			argument: 'secret',
+			defaultValue: '',
 			description: 'The last.fm secret'
 		}
 	},
