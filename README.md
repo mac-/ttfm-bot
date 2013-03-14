@@ -38,6 +38,8 @@ You can run ttfm-bot with the -h flag to see the various options:
 		-n, --db-name <name>          The Mongo DB to connect to Defaults to: "ttfm"
 		-U, --db-user <user>          The Mongo DB user
 		-p, --db-password <password>  The Mongo DB password
+		-l, --lastfm-api-key <key>    The last.fm API key
+		-L, --lastfm-secret <secret>  The last.fm secret
 
 Example usage:
 
@@ -273,6 +275,8 @@ Add ons that come with this bot
 * <code>song-tracker</code> - Requires a MongoDB instance. Tracks songs that have been played and announces information about those songs.
 * <code>user-tracker</code> - Requires a MongoDB instance. Tracks user's activity in the room including songs they've played, voted for, and votes they've recieved.
 * <code>achievements-tracker</code> - Requires a MongoDB instance. Adds an achievements system to the room, and tracks achievements that people have earned.
+* <code>lastfm</code> - Requires a [last.fm API key and secret](http://www.last.fm/api). Provides commands for retrieving artist info, similar artists and songs.
+* <code>voting</code> - Creates a system for having users participate in a vote via chat.
 
 License
 ===

@@ -40,6 +40,14 @@ var options = {
 		dbPassword: {
 			argument: 'password',
 			description: 'The Mongo DB password'
+		},
+		lastFmApiKey: {
+			argument: 'key',
+			description: 'The last.fm API key'
+		},
+		lastFmSecret: {
+			argument: 'secret',
+			description: 'The last.fm secret'
 		}
 	},
 	config = opter(options, version);
@@ -102,7 +110,7 @@ bot.registerAddOn(DjAddOn);
 bot.registerAddOn(DjQueueAddOn, { djSongLimit: 2 });
 
 // register lastfm addon
-bot.registerAddOn(LastFmAddOn);
+bot.registerAddOn(LastFmAddOn, { lastFmApiKey: config.lastFmApiKey, lastFmSecret: config.lastFmSecret });
 
 // register voting addon
 bot.registerAddOn(VotingAddOn);
