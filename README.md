@@ -3,6 +3,8 @@ ttfm-bot
 
 ttfm-bot is a turntable.fm bot that can be easily extended and configured at runtime.
 
+[![Dependency Status](https://david-dm.org/mac-/ttfm-bot.png)](https://david-dm.org/mac-/ttfm-bot)
+
 Installation
 ===
 
