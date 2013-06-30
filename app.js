@@ -80,7 +80,6 @@ var ExtendedBot = require('./lib/ExtendedBot.js'),
 	DjAddOn = require('./lib/DjAddOn.js'),
 	EscortMeAddOn = require('./lib/EscortMeAddOn.js'),
 	AfkAddOn = require('./lib/AfkTrackerAddOn.js'),
-	AfkDjAddOn = require('./lib/AfkDjAddOn.js'),
 	DjQueueAddOn = require('./lib/DjQueueAddOn.js'),
 	LastFmAddOn = require('./lib/LastFmAddOn.js'),
 	VotingAddOn = require('./lib/VotingAddOn.js'),
@@ -119,9 +118,6 @@ bot.registerAddOn(VotingAddOn);
 
 // register afk addon
 bot.registerAddOn(AfkAddOn, { afkThreshold: 60 * 15 }); // afk threshold of 15 minutes
-
-// register afk dj addon
-bot.registerAddOn(AfkDjAddOn, { warnTime: 60 }); // warn time of 60 seconds
 
 // register song tracker addon
 bot.registerAddOn(SongTrackerAddOn, { dbConnectionString: dbConnectionString });
