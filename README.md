@@ -271,7 +271,6 @@ Add ons that come with this bot
 * <code>dj-queue</code> - Creates a queue for users to add themselves to in order to DJ when the stage is full
 * <code>escort-me</code> - Provides a command for a DJ to let the bot escort them off stage after their song completes
 * <code>afk-tracker</code> - Provides a system for tracking when users are active or afk
-* <code>afk-dj</code> - Warns DJs when they have become AFK if the stage is full, and removes them from the stage if they don't respond
 * <code>greeter</code> - Welcomes users to your room, and will respond to users who say hello to the bot
 * <code>bopper</code> - Allows people to issue a command to make the bot bop to the current song
 * <code>song-tracker</code> - Requires a MongoDB instance. Tracks songs that have been played and announces information about those songs.
