@@ -7,12 +7,12 @@
 	"version": "0.1.0",
 	"dependencies": {
 		"opter": "0.x.x",
-		"ttapi": "2.x.x",
+		"ttapi": "3.x.x",
 		"twss": "0.x.x",
-		"express": "2.5.x",
-		"mongoose": "3.5.x",
+		"express": "3.x.x",
+		"mongoose": "3.x.x",
 		"underscore": "1.x.x",
-		"moment": "1.x.x",
+		"moment": "2.x.x",
 		"eidetic": "0.1.x",
 		"lastfm": "0.8.x"
 	},

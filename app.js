@@ -57,7 +57,7 @@ var options = {
 /*******************************
 	Status route (to keep heroku happy)
 *******************************/
-var app = express.createServer(express.logger());
+var app = express(express.logger());
 app.get('/', function(request, response) {
   response.send('Bot is running!');
 });
