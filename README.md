@@ -1,3 +1,5 @@
+Obviously Turntable is no longer available, however I think this repo serves as good reference material for a plugin implementation, and so I'm going to keep it around for the foreseeable future.
+
 ttfm-bot
 ===
 
